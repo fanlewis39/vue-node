@@ -34,20 +34,21 @@
   },//ES6语法糖,在组件中返回一个函数
   methods:{
     addToCart:function(book){
-       this.axios.post('http://localhost:8082/c', {
+     this.axios.post(this.$root.URL + 'cart', {
         name: book.name,
         price: book.price
-      })
-      .then(function (response) {
+    })
+     .then(function (response) {
         console.log(response);
-      })
-      .catch(function (error) {
+    })
+     .catch(function (error) {
         console.log(error);
-      });
-}
+    });
+ }
 },
 created(){
-    this.axios.get('http://localhost:8082/').then((res)=>{this.books = res.data;});
+    debugger
+    this.axios.get(this.$root.URL + '/books').then((res)=>{this.books = res.data;});
 }
 
 //     function(){       
@@ -61,8 +62,8 @@ created(){
 <style scoped>
 #u-ul{color: #abcdef}
 .users{
-    margin: 30px 70px 70px;
-    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    margin: 3% 8% 2% 8%;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2);
 }
 
 .fl-table {
@@ -102,67 +103,9 @@ created(){
 
 /* Responsive */
 
-/*@media (max-width: 767px) {
-    .fl-table {
-        display: block;
+@media(max-width: 768px){
+    .fl-table{
         width: 100%;
     }
-    .users:before{
-        content: "Scroll horizontally >";
-        display: block;
-        text-align: right;
-        font-size: 11px;
-        color: white;
-        padding: 0 0 10px;
-    }
-    .fl-table thead, .fl-table tbody, .fl-table thead th {
-        display: block;
-    }
-    .fl-table thead th:last-child{
-        border-bottom: none;
-    }
-    .fl-table thead {
-        float: left;
-    }
-    .fl-table tbody {
-        width: auto;
-        position: relative;
-        overflow-x: auto;
-    }
-    .fl-table td, .fl-table th {
-        padding: 20px .625em .625em .625em;
-        height: 60px;
-        vertical-align: middle;
-        box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: auto;
-        width: 120px;
-        font-size: 13px;
-        text-overflow: ellipsis;
-    }
-    .fl-table thead th {
-        text-align: left;
-        border-bottom: 1px solid #f7f7f9;
-    }
-    .fl-table tbody tr {
-        display: table-cell;
-    }
-    .fl-table tbody tr:nth-child(odd) {
-        background: none;
-    }
-    .fl-table tr:nth-child(even) {
-        background: transparent;
-    }
-    .fl-table tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tbody td {
-        display: block;
-        text-align: center;
-    }
-    }*/
+}
 </style>

@@ -36,13 +36,15 @@ export default {
 
 <style scoped>
     .Cart{
-      margin:100px 350px;
+      margin:3% 8% 2% 8%;
+      box-shadow: 0px 10px 35px rgba( 0, 0, 0, 0.2);
+
     }
     .cart-table{
       border-radius: 5px;
       font-size: 20px;
       width: 100%;
-      box-shadow: 0px 10px 35px rgba( 0, 0, 0, 0.2 );
+      
     }
     .cart-table tr td{
       border-right: 1px solid #fff;
@@ -55,5 +57,11 @@ export default {
     }
     .cart-table tbody td{
       background: #ebebeb;
+    }
+
+    @media(max-width: 768px){
+      .cart-table{
+        width: 100%;
+      }
     }
 </style>

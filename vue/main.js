@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import Users from './components/Users'
@@ -27,7 +25,11 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  data: {
+  	URL: 'http://192.168.0.134:8082'
+  },
   components: { App },
   template: '<App/>'
 })
+
 

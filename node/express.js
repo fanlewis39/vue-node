@@ -26,7 +26,7 @@ connection.connect();
 });
  
 //主页表单
-app.get('/', function (req, res) {
+app.get('/books', function (req, res) {
   var sql = 'SELECT * FROM `books`';
   connection.query(sql,function(err,result){
       if(err){
@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 
 //购物车表单
 app.get('/cart',function (req,res){
-  var sql = 'SELECT name,price FROM `cart`';
+  var sql = 'SELECT name, price FROM `cart`';
   connection.query(sql,function(err,result){
     if(err){
       console.log(err.message);
@@ -51,7 +51,7 @@ app.get('/cart',function (req,res){
 
 //添加入购物车
 //如果是get方法，下面是req.query.name，此时能用url传参
-app.post('/c', function (req, res) {
+app.post('/cart', function (req, res) {
   console.log(req.body)
   var name = req.body.name;
   var price = req.body.price;
@@ -73,4 +73,3 @@ var server = app.listen(8082, function () {
   console.log("Server running at http://192.168.0.134", host, port)
   
 })
-
