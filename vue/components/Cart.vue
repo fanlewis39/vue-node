@@ -3,17 +3,22 @@
        <table class="cart-table">
          <thead>
            <tr>
-             <td colspan="2">购物车</td>
+             <td colspan="3">购物车</td>
            </tr>
            <tr>
             <td>书名</td>
             <td>价格</td>
+            <td>操作</td>
           </tr>
          </thead>
          <tbody>
-           <tr v-for="cart in carts">
+           <tr v-for="(cart, index) in carts" >
              <td>{{cart.name}}</td>
              <td>{{cart.price}}</td>
+             <td><button class="btn btn-danger" @click="cancarFromCart(cart, index)">删除</button></td>
+           </tr>
+           <tr>
+             <td>total:</td>
            </tr>
          </tbody>
        </table>
@@ -28,8 +33,22 @@ export default {
         carts:[]
     }
   },
+  methods:{
+    cancarFromCart:function(cart, index){
+      this.axios.post(this.$root.URL+'/cancel',{
+        id: cart.id
+      })
+      .then(function (response) {
+      console.log(response);
+      })
+      .catch(function (error) {
+      console.log(error);
+      });
+      this.carts.splice(index, 1);
+    }
+  },
    created(){
-    this.axios.get('http://192.168.0.134:8082/cart').then((res)=>{this.carts = res.data;});
+    this.axios.get(this.$root.URL+'/cart').then((res)=>{this.carts = res.data;});
   }
 }
 </script>
