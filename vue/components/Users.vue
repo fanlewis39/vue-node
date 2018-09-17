@@ -34,7 +34,7 @@
   },//ES6语法糖,在组件中返回一个函数
   methods:{
     addToCart:function(book){
-     this.axios.post(this.$root.URL + 'cart', {
+     this.axios.post(this.$root.URL + '/cart', {
         name: book.name,
         price: book.price
     })
@@ -47,7 +47,6 @@
  }
 },
 created(){
-    debugger
     this.axios.get(this.$root.URL + '/books').then((res)=>{this.books = res.data;});
 }
 
@@ -62,13 +61,13 @@ created(){
 <style scoped>
 #u-ul{color: #abcdef}
 .users{
-    margin: 3% 8% 2% 8%;
+    margin: 5% 8% 2% 8%;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2);
 }
 
 .fl-table {
     border-radius: 5px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: normal;
     border: none;
     border-collapse: collapse;

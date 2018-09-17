@@ -15,11 +15,6 @@ import Header from './Header'
 
 export default {
   name: 'home',
-  data(){
-    return {
-      title:'my first vue projuct' 
-    }
-  },
   components:{
     "user":Users,
     "vheader":Header
