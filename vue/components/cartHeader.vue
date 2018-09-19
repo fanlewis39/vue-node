@@ -3,7 +3,7 @@
         <nav class="navbar navbar-default">
             <div class="menu">
                 <ul class="nav navbar-nav">
-              		<li><router-link to="/">home</router-link></li>
+              		<li><router-link to="/home">home</router-link></li>
               		<li><router-link to="/cart">购物车</router-link></li>
         		</ul>
    			</div>
