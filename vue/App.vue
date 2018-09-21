@@ -19,9 +19,11 @@ export default {
 </script>
 
 <!-- 样式：解决样式 -->
-<style scoped>
-    nav{
-    	position: absolute;       
-    	margin-top: 100px;
-    }
+<style>
+	html, body {
+		height: 100%;
+	}
+	#app {
+		height: 100%;/*找父元素body的高度*/
+	}
 </style>
